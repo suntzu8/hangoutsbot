@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 class EventHandler:
     """Handle Hangups conversation events"""
 
-    def __init__(self, bot, bot_command= ['/bot', '!']):
+    def __init__(self, bot, bot_command= '/bot'):
         self.bot = bot
         self.bot_command = bot_command
 
@@ -164,6 +164,10 @@ class EventHandler:
         # ensure bot alias is always a list
         if not isinstance(self.bot_command, list):
             self.bot_command = [self.bot_command]
+
+        # allow ! as an alias for bot command
+        if event.text[0] == '!':
+            event.text = u" ".join((self.bot_command[0], event.text[1:]))
 
         # check that a bot alias is used e.g. /bot
         if not event.text.split()[0].lower() in self.bot_command:

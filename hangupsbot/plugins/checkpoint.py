@@ -25,7 +25,7 @@ def _initialise(bot):
     plugins.register_user_command(["checkpoint","cp"])
 
 def cp(bot, event, *args):
-    checkpoint(bot, event, args)
+    return checkpoint(bot, event, args)
 
 def checkpoint(bot, event, *args):
     now = datetime.datetime.utcnow()

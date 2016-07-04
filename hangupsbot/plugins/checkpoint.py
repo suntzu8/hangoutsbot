@@ -22,7 +22,10 @@ def formatDuration( seconds ):
     return '%sh%sm%ss' % (hours, minutes, seconds)
 
 def _initialise(bot):
-    plugins.register_user_command(["checkpoint"])
+    plugins.register_user_command(["checkpoint","cp"])
+
+def cp(bot, event, *args):
+    checkpoint(bot, event, args)
 
 def checkpoint(bot, event, *args):
     now = datetime.datetime.utcnow()

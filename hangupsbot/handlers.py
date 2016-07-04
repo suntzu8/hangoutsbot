@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 class EventHandler:
     """Handle Hangups conversation events"""
 
-    def __init__(self, bot, bot_command='/bot'):
+    def __init__(self, bot, bot_command= ['/bot', '!']):
         self.bot = bot
         self.bot_command = bot_command
 
